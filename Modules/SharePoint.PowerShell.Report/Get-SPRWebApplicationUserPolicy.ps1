@@ -4,15 +4,15 @@ function Get-SPRWebApplicationUserPolicy
   param
   (
     [Parameter(Mandatory = $true)]
-    [object[]]$SPWebApplication,
+    [object[]]$SPRWebApplication,
     [Parameter(Mandatory = $true)]
-    [object[]]$SPManagedAccount
+    [object[]]$SPRManagedAccount
   )
 	
-  foreach ($webApplication in $SPWebApplication)
+  foreach ($webApplication in $SPRWebApplication)
   {
     $policies = $webApplication.Policies
-    $managedAccountUsernames = $SPManagedAccount | Select-Object -ExpandProperty UserName
+    $managedAccountUsernames = $SPRManagedAccount | Select-Object -ExpandProperty UserName
     
     foreach ($policy in $policies)
     {
@@ -21,7 +21,7 @@ function Get-SPRWebApplicationUserPolicy
         'DisplayName'      = $webApplication.DisplayName
         'UserDisplayName'  = $policy.DisplayName
         'Username'         = $policy.UserName
-        'PolicyRoleBindings' = $policy.PolicyRoleBindings.Name
+        'PolicyRoleBindings' = $policy.PolicyRoleBindingName
         'SystemUser'       = $systemUser
       }
       $output = New-Object -TypeName PSObject -Property $properties

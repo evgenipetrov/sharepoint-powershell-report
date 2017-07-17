@@ -143,16 +143,15 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.1.8	WEB PART SECURITY
   
+  #region 7.1.9	USER POLICY
+  $title = 'Web Application User Policy'
+  $object = Get-SPRWebApplicationUserPolicy -SPRWebApplication $SPRObjects.SPRWebApplication -SPRManagedAccount $SPRObjects.SPRManagedAccount
+  $properties = 'DisplayName', 'UserDisplayName', 'Username', 'PolicyRoleBindings', 'SystemUser'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.1.9	USER POLICY
   
   <#
-     
-      7.1.8	WEB PART SECURITY
-      $title = 'Web Application Web Part Security'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRWebApplicationWebPartSecurity -SPWebApplication $SPRObjects.SPWebApplication |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties DisplayName, OnlineWebPartGallery, WebPartConnections, ScriptableWebParts 
       
       7.1.9	USER POLICY
       $title = 'Web Application User Policy'    

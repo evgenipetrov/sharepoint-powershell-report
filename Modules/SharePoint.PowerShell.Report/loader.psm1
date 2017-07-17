@@ -18,6 +18,7 @@
 . $PSScriptRoot\Export-SPRSite.ps1
 . $PSScriptRoot\Export-SPREnterpriseSearchServiceApplication.ps1
 . $PSScriptRoot\Export-SPRFeature.ps1
+. $PSScriptRoot\Export-SPRManagedAccount.ps1
 
 # helper commands
 . $PSScriptRoot\Get-SPReport.ps1
@@ -49,11 +50,12 @@
 . $PSScriptRoot\Get-SPRWebApplicationManagedPaths.ps1
 . $PSScriptRoot\Get-SPRWebApplicationSelfServiceSiteCreation.ps1
 . $PSScriptRoot\Get-SPRWebApplicationWebPartSecurity.ps1
+. $PSScriptRoot\Get-SPRWebApplicationUserPolicy.ps1
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
 
     
-    . $PSScriptRoot\Export-SPRManagedAccount.ps1
+
 
 
     . $PSScriptRoot\Export-SPRAlternateUrl.ps1
@@ -167,7 +169,7 @@
 
 
 
-    . $PSScriptRoot\Get-SPRWebApplicationUserPolicy.ps1
+    
 
 
     . $PSScriptRoot\Export-SPRAuthenticationProvider.ps1

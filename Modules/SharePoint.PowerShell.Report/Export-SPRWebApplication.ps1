@@ -35,7 +35,7 @@
       foreach ($managedPath in $managedPaths)
       {
         $properties = @{
-          'Name'     = $managedPath.Name
+          'Name' = $managedPath.Name
           'Type' = $managedPath.Type
         }
         $myManagedPath = New-Object -TypeName PSObject -Property $properties
@@ -44,6 +44,12 @@
       
       $webApplication | Add-Member -MemberType NoteProperty -Name 'ManagedPaths' -Value $myManagedPaths
       
+      foreach ($policy in $webApplication.Policies)
+      {
+        $policyRoleBindingName = $policy.PolicyRoleBindings.Name
+        $policy | Add-Member -MemberType NoteProperty -Name 'PolicyRoleBindingName' -Value $policyRoleBindingName
+      }
+     
       $output += $webApplication
     }
     $output | Export-Clixml -Path $Path

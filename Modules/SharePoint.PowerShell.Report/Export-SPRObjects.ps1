@@ -24,11 +24,10 @@ function Export-SPRObjects
   #Export-SPRWebApplication -Path $Path -Async $Async
   #Export-SPREnterpriseSearchServiceApplication -Path $Path -Async $Async
   #Export-SPRFeature -Path $Path -Async $Async
-  
+  #Export-SPRManagedAccount -Path $Path -Async $Async
   
   ###Export-SPREnterpriseSearchTopologyConfiguration -Path $Path -Async $Async
   ###Export-SPREnterpriseSearchComponent -Path $Path -Async $Async
-  #
   ###Export-SPRManagedPath -Path $Path -Async $Async
   #Export-SPRManagedAccount -Path $Path -Async $Async
   ###Export-SPRAlternateUrl -Path $Path -Async $Async
