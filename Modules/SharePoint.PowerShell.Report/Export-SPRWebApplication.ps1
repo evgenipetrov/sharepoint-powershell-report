@@ -31,7 +31,18 @@
       $webApplication | Add-Member -MemberType NoteProperty -Name 'SuperReaderHasFullRead' -Value $superReaderHasFullRead -Force
       
       $managedPaths = Get-SPManagedPath -WebApplication $webApplication
-      $webApplication | Add-Member -MemberType NoteProperty 'ManagedPaths' -Value $managedPaths
+      $myManagedPaths = @()      
+      foreach ($managedPath in $managedPaths)
+      {
+        $properties = @{
+          'Name'     = $managedPath.Name
+          'Type' = $managedPath.Type
+        }
+        $myManagedPath = New-Object -TypeName PSObject -Property $properties
+        $myManagedPaths += $myManagedPath
+      }
+      
+      $webApplication | Add-Member -MemberType NoteProperty -Name 'ManagedPaths' -Value $myManagedPaths
       
       $output += $webApplication
     }

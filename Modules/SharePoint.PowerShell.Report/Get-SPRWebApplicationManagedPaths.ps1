@@ -21,11 +21,11 @@
         $name = '/{0}/' -f $managedPath.Name
       }
       
-      if ($managedPath.Type.Value -eq 'ExplicitInclusion')
+      if ($managedPath.Type -eq 'ExplicitInclusion')
       {
         $prefixType = 'Explicit Inclusion'
       }
-      elseif($managedPath.Type.Value -eq 'WildcardInclusion') 
+      elseif($managedPath.Type -eq 'WildcardInclusion') 
       {
         $prefixType = 'Wildcard Inclusion'
       }
