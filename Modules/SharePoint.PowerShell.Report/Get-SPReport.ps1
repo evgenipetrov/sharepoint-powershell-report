@@ -127,25 +127,25 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.1.6	MANAGED PATHS
   
-
+  #region 7.1.7	SELF-SERVICE SITE CREATION
+  $title = 'Web Application Self Service Site Creation'
+  $object = Get-SPRWebApplicationSelfServiceSiteCreation -SPRWebApplication $SPRObjects.SPRWebApplication
+  $properties = 'WebApplicationName', 'WebApplicationUrl', 'Allowed', 'RequireSecondaryContact'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.1.7	SELF-SERVICE SITE CREATION
+  
+  #region 7.1.8	WEB PART SECURITY
+  $title = 'Web Application Web Part Security' 
+  $object = Get-SPRWebApplicationWebPartSecurity -SPRWebApplication $SPRObjects.SPRWebApplication
+  $properties = 'DisplayName', 'OnlineWebPartGallery', 'WebPartConnections', 'ScriptableWebParts'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.1.8	WEB PART SECURITY
+  
+  
   <#
-      
-      7.1.6	MANAGED PATHS
-      $title = 'Web Application Managed Paths'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRWebApplicationManagedPaths -SPManagedPath $SPRObjects.SPManagedPath |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties WebApplicationUrl, Name, PrefixType
-
-      7.1.7	SELF-SERVICE SITE CREATION
-      $title = 'Web Application Self Service Site Creation'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRWebApplicationSelfServiceSiteCreation -SPWebApplication $SPRObjects.SPWebApplication |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties WebApplicationName, WebApplicationUrl, Allowed, RequireSecondaryContact 
-      
+     
       7.1.8	WEB PART SECURITY
       $title = 'Web Application Web Part Security'    
       Write-Host -Object "Building section: $title"                             

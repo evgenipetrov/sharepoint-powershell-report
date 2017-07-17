@@ -3,10 +3,10 @@
   param
   (
     [Parameter(Mandatory = $true)]
-    [object[]]$SPWebApplication
+    [object[]]$SPRWebApplication
   )
 	
-  foreach ($webApplication in $SPWebApplication)
+  foreach ($webApplication in $SPRWebApplication)
   {
     $properties = [ordered]@{
       'WebApplicationName'    = $webApplication.DisplayName

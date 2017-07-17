@@ -47,7 +47,8 @@
 . $PSScriptRoot\Get-SPRWebApplicationWorkflowSettings.ps1
 . $PSScriptRoot\Get-SPRWebApplicationFeatures.ps1
 . $PSScriptRoot\Get-SPRWebApplicationManagedPaths.ps1
-
+. $PSScriptRoot\Get-SPRWebApplicationSelfServiceSiteCreation.ps1
+. $PSScriptRoot\Get-SPRWebApplicationWebPartSecurity.ps1
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
 
@@ -165,9 +166,9 @@
     . $PSScriptRoot\Get-SPRWebApplicationObjectCacheAccounts.ps1
 
 
-    . $PSScriptRoot\Get-SPRWebApplicationSelfServiceSiteCreation.ps1
+
     . $PSScriptRoot\Get-SPRWebApplicationUserPolicy.ps1
-    . $PSScriptRoot\Get-SPRWebApplicationWebPartSecurity.ps1
+
 
     . $PSScriptRoot\Export-SPRAuthenticationProvider.ps1
     . $PSScriptRoot\Export-SPRDiagnosticLogging.ps1
