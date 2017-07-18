@@ -54,6 +54,7 @@
 . $PSScriptRoot\Get-SPRWebApplicationAlternateAccessMappings.ps1
 . $PSScriptRoot\Get-SPRIISSettings.ps1
 . $PSScriptRoot\Get-SPRWebApplicationObjectCacheAccounts.ps1
+. $PSScriptRoot\Get-SPRSiteCollectionList.ps1
 
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
@@ -142,7 +143,7 @@
     . $PSScriptRoot\Get-SPRSharePointBuild.ps1
     . $PSScriptRoot\Get-SPRSharePointDesignerSettings.ps1
 
-    . $PSScriptRoot\Get-SPRSiteCollectionList.ps1
+
     . $PSScriptRoot\Get-SPRSiteCollectionQuotas.ps1
 
     . $PSScriptRoot\Get-SPRSiteUsageAndProperties.ps1

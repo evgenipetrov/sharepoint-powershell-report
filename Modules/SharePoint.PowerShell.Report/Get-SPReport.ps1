@@ -177,7 +177,7 @@
   
   #region 7.2.1	SITE COLLECTIONS LIST
   $title = 'Site Collections List'
-  $object = Get-SPRSiteCollectionList -SPRContentDatabase $SPRObjects.SPRContentDatabase
+  $object = Get-SPRSiteCollectionList -SPRDatabase $SPRObjects.SPRDatabase
   $properties = 'WebApplication', 'SiteCollectionTitle', 'SiteCollectionUrl', 'SiteCollectionContentDatabase', 'Owners'
   
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
