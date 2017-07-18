@@ -51,6 +51,8 @@
 . $PSScriptRoot\Get-SPRWebApplicationSelfServiceSiteCreation.ps1
 . $PSScriptRoot\Get-SPRWebApplicationWebPartSecurity.ps1
 . $PSScriptRoot\Get-SPRWebApplicationUserPolicy.ps1
+. $PSScriptRoot\Get-SPRWebApplicationAlternateAccessMappings.ps1
+
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
 
@@ -158,7 +160,7 @@
     . $PSScriptRoot\Get-SPRUserProfuleCount.ps1
     . $PSScriptRoot\Get-SPRUserProfuleProperties.ps1
     . $PSScriptRoot\Get-SPRUserSolutions.ps1
-    . $PSScriptRoot\Get-SPRWebApplicationAlternateAccessMappings.ps1
+
 
     . $PSScriptRoot\Get-SPRWebApplicationFeatures.ps1
 

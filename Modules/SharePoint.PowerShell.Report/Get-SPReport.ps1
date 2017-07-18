@@ -150,17 +150,18 @@
   
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.1.9	USER POLICY
+
+  #region 7.1.10	ALTERNATE ACCESS MAPPINGS
+  $title = 'Web Application Alternate Access Mappings' 
+  $object = Get-SPRWebApplicationAlternateAccessMappings -SPRWebApplication $SPRObjects.SPRWebApplication
+  $properties = 'DisplayName','InternalUrl','Zone','Url'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.1.10	ALTERNATE ACCESS MAPPINGS
+  
   
   <#
-      
-      7.1.9	USER POLICY
-      $title = 'Web Application User Policy'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRWebApplicationUserPolicy -SPWebApplication $SPRObjects.SPWebApplication -SPManagedAccount $SPRObjects.SPManagedAccount |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties DisplayName, UserDisplayName, Username, PolicyRoleBindings, SystemUser
-
+ 
       7.1.10	ALTERNATE ACCESS MAPPINGS
       $title = 'Web Application Alternate Access Mappings'    
       Write-Host -Object "Building section: $title"                             
