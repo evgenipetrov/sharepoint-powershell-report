@@ -52,6 +52,7 @@
 . $PSScriptRoot\Get-SPRWebApplicationWebPartSecurity.ps1
 . $PSScriptRoot\Get-SPRWebApplicationUserPolicy.ps1
 . $PSScriptRoot\Get-SPRWebApplicationAlternateAccessMappings.ps1
+. $PSScriptRoot\Get-SPRIISSettings.ps1
 
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
@@ -101,7 +102,7 @@
     . $PSScriptRoot\Get-SPRFarmServiceAccounts.ps1
 
     . $PSScriptRoot\Get-SPRHealthAnalyzerProblems.ps1
-    . $PSScriptRoot\Get-SPRIISSettings.ps1
+
     . $PSScriptRoot\Get-SPRIncomingEmailSettings.ps1
     . $PSScriptRoot\Get-SPRInfopathConfiguration.ps1
     . $PSScriptRoot\Get-SPRInfopathFormTemplates.ps1

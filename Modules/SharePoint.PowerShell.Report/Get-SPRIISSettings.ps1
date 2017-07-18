@@ -3,39 +3,22 @@
   param
   (
     [Parameter(Mandatory = $true)]
-    [object[]]$SPWebApplication,
-    [Parameter(Mandatory = $true)]
-    [object[]]$SPAlternateURL,
-    [Parameter(Mandatory = $true)]
-    [object[]]$SPAuthenticationProvider
+    [object[]]$SPRWebApplication
   )
 	
-  foreach ($webApplication in $SPWebApplication)
+  foreach ($webApplication in $SPRWebApplication)
   {
-    $alternateUrls = $SPAlternateURL | Where-Object -FilterScript {
-      $_.WebApplicationUrl -eq $webApplication.Url
-    } 
+    $alternateUrls = $webApplication.AlternateUrls
     
     foreach ($alternateUrl in $alternateUrls)
     {
-      $authenticationProvider = $SPAuthenticationProvider | Where-Object -FilterScript {
-        $_. WebApplicationUrl -eq $webApplication.Url -and $_.Zone -eq $alternateUrl.Zone
-      } 
       $ssl = $alternateUrl.PublicUrl -like 'https*'
-      if ($authenticationProvider.DisableKerberos -eq $true -and $authenticationProvider.UseWindowsIntegratedAuthentication -eq $true)
-      {
-        $authentication = 'NTLM'
-      }
-      elseif ($authenticationProvider.DisableKerberos -eq $false -and $authenticationProvider.UseWindowsIntegratedAuthentication -eq $true)
-      {
-        $authentication = 'Kerberos'
-      }
       
       $properties = [ordered]@{
         'DisplayName'           = $webApplication.DisplayName
         'Url'                   = $alternateUrl.IncomingUrl
         'Zone'                  = $alternateUrl.Zone
-        'Authentication'        = $authentication
+        'Authentication'        = $alternateUrl.authentication
         'ApplicationPoolName'   = $webApplication.ApplicationPool.Name
         'ApplicationPoolIdentity' = $webApplication.ApplicationPool.Username
         'SSL'                   = $ssl

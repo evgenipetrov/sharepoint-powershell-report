@@ -159,16 +159,16 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.1.10	ALTERNATE ACCESS MAPPINGS
   
+  #region 7.1.11	IIS SETTINGS
+  $title = 'IIS Settings' 
+  $object = Get-SPRIISSettings -SPRWebApplication $SPRObjects.SPRWebApplication
+  $properties = 'DisplayName', 'Url', 'Zone', 'Authentication', 'ApplicationPoolName', 'ApplicationPoolIdentity', 'SSL', 'ClaimsAuth', 'CEIP'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.1.11	IIS SETTINGS
+  
   
   <#
- 
-      7.1.10	ALTERNATE ACCESS MAPPINGS
-      $title = 'Web Application Alternate Access Mappings'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRWebApplicationAlternateAccessMappings -SPAlternateUrl $SPRObjects.SPAlternateURL |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties *
   
       7.1.11	IIS SETTINGS
       $title = 'IIS Settings'    

@@ -49,6 +49,22 @@
         $policyRoleBindingName = $policy.PolicyRoleBindings.Name
         $policy | Add-Member -MemberType NoteProperty -Name 'PolicyRoleBindingName' -Value $policyRoleBindingName
       }
+      
+      foreach ($alternateUrl in $webApplication.AlternateUrls)
+      {
+        $authenticationProvider = Get-SPAuthenticationProvider -WebApplication $webApplication -Zone $alternateUrl.Zone
+        if ($authenticationProvider.DisableKerberos -eq $true -and $authenticationProvider.UseWindowsIntegratedAuthentication -eq $true)
+        {
+          $authentication = 'NTLM'
+        }
+        elseif ($authenticationProvider.DisableKerberos -eq $false -and $authenticationProvider.UseWindowsIntegratedAuthentication -eq $true)
+        {
+          $authentication = 'Kerberos'
+        }
+
+        $alternateUrl | Add-Member -MemberType NoteProperty -Name 'Authentication' -Value $authentication
+      }
+      
      
       $output += $webApplication
     }
