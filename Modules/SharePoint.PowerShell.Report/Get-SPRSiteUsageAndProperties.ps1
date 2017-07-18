@@ -3,10 +3,10 @@
   param
   (
     [Parameter(Mandatory = $true)]
-    [object[]]$SPSite
+    [object[]]$SPRSite
   )
 	
-  foreach ($site in $SPSite)
+  foreach ($site in $SPRSite)
   {
     $properties = [ordered]@{
       'SiteCollectionTitle' = $site.RootWeb.Title

@@ -183,16 +183,16 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.2.1	SITE COLLECTIONS LIST
   
+  #region 7.2.2	USAGE AND PROPERTIES
+  $title = 'Site Collections Usage and Properties' 
+  $object = Get-SPRSiteUsageAndProperties -SPRDatabase $SPRObjects.SPRDatabase
+  $properties = 'SiteCollectionTitle', 'SiteCollectionUrl', 'Language', 'Template', 'NumberOfSites', 'UIVersion', 'Storage'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.2.2	USAGE AND PROPERTIES
+  
   
   <#
-
-      7.2.1	SITE COLLECTIONS LIST
-      $title = 'Site Collections List'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRSiteCollectionList -SPSite $SPRObjects.SPSite |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties WebApplication, SiteCollectionTitle, SiteCollectionUrl, SiteCollectionContentDatabase, Owners
   
       7.2.2	USAGE AND PROPERTIES
       $title = 'Site Collections Usage and Properties'    

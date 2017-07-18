@@ -55,6 +55,7 @@
 . $PSScriptRoot\Get-SPRIISSettings.ps1
 . $PSScriptRoot\Get-SPRWebApplicationObjectCacheAccounts.ps1
 . $PSScriptRoot\Get-SPRSiteCollectionList.ps1
+. $PSScriptRoot\Get-SPRSiteUsageAndProperties.ps1
 
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
@@ -146,7 +147,7 @@
 
     . $PSScriptRoot\Get-SPRSiteCollectionQuotas.ps1
 
-    . $PSScriptRoot\Get-SPRSiteUsageAndProperties.ps1
+    
     . $PSScriptRoot\Get-SPRSqlServerAdvancedSettings.ps1
     . $PSScriptRoot\Get-SPRSqlServerAliases.ps1
     . $PSScriptRoot\Get-SPRSqlServerCertificates.ps1
