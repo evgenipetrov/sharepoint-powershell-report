@@ -53,6 +53,7 @@
 . $PSScriptRoot\Get-SPRWebApplicationUserPolicy.ps1
 . $PSScriptRoot\Get-SPRWebApplicationAlternateAccessMappings.ps1
 . $PSScriptRoot\Get-SPRIISSettings.ps1
+. $PSScriptRoot\Get-SPRWebApplicationObjectCacheAccounts.ps1
 
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
@@ -168,7 +169,7 @@
     . $PSScriptRoot\Get-SPRWebApplicationIisSettings.ps1
 
     
-    . $PSScriptRoot\Get-SPRWebApplicationObjectCacheAccounts.ps1
+    
 
 
 

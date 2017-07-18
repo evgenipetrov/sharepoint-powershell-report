@@ -4,10 +4,10 @@ function Get-SPRWebApplicationObjectCacheAccounts
   param
   (
     [Parameter(Mandatory = $true)]
-    [object[]]$SPWebApplication
+    [object[]]$SPRWebApplication
   )
 	
-  foreach ($webApplication in $SPWebApplication)
+  foreach ($webApplication in $SPRWebApplication)
   {
     $superUserAccount = $webApplication.Properties['portalsuperuseraccount'] 
     $superReaderAccount = $webApplication.Properties['portalsuperreaderaccount'] 

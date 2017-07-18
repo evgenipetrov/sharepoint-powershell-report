@@ -167,25 +167,25 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.1.11	IIS SETTINGS
   
+  #region 7.1.12	OBJECT CACHE ACCOUNTS
+  $title = 'Web Application Object Cache Accounts' 
+  $object = Get-SPRWebApplicationObjectCacheAccounts -SPRWebApplication $SPRObjects.SPRWebApplication
+  $properties = 'DisplayName', 'SuperUserAcount', 'SuperUserHasFullControl', 'SuperReaderAcount', 'SuperReaderHasFullRead'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.1.12	OBJECT CACHE ACCOUNTS
+  
+  #region 7.2.1	SITE COLLECTIONS LIST
+  $title = 'Site Collections List'
+  $object = Get-SPRSiteCollectionList -SPRContentDatabase $SPRObjects.SPRContentDatabase
+  $properties = 'WebApplication', 'SiteCollectionTitle', 'SiteCollectionUrl', 'SiteCollectionContentDatabase', 'Owners'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.2.1	SITE COLLECTIONS LIST
+  
   
   <#
-  
-      7.1.11	IIS SETTINGS
-      $title = 'IIS Settings'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRIISSettings -SPWebApplication $SPRObjects.SPWebApplication -SPAlternateURL $SPRObjects.SPAlternateURL -SPAuthenticationProvider $SPRObjects.SPAuthenticationProvider |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties DisplayName, Url, Zone, Authentication, ApplicationPoolName, ApplicationPoolIdentity, SSL, ClaimsAuth, CEIP
-  
-      7.1.12	OBJECT CACHE ACCOUNTS
-      $title = 'Web Application Object Cache Accounts'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRWebApplicationObjectCacheAccounts -SPWebApplication $SPRObjects.SPWebApplication |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties DisplayName, SuperUserAcount, SuperUserHasFullControl, SuperReaderAcount, SuperReaderHasFullRead
-  
+
       7.2.1	SITE COLLECTIONS LIST
       $title = 'Site Collections List'    
       Write-Host -Object "Building section: $title"                             
@@ -217,6 +217,10 @@
       ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
       -PreContent "<h2>$title</h2>" `
       -Properties SiteCollection, URL, QuotaName, LockStatus, StorageMaximumLevel, StorageWarningLevel, UsageStorage
+
+
+
+
   
       7.3.1.1	DISTRIBUTED CACHE CONFIG
       $title = 'DISTRIBUTED CACHE CONFIG'    
