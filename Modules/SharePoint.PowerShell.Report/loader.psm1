@@ -19,6 +19,7 @@
 . $PSScriptRoot\Export-SPREnterpriseSearchServiceApplication.ps1
 . $PSScriptRoot\Export-SPRFeature.ps1
 . $PSScriptRoot\Export-SPRManagedAccount.ps1
+. $PSScriptRoot\Export-SPRQuotaTemplates.ps1
 
 # helper commands
 . $PSScriptRoot\Get-SPReport.ps1
@@ -56,6 +57,7 @@
 . $PSScriptRoot\Get-SPRWebApplicationObjectCacheAccounts.ps1
 . $PSScriptRoot\Get-SPRSiteCollectionList.ps1
 . $PSScriptRoot\Get-SPRSiteUsageAndProperties.ps1
+. $PSScriptRoot\Get-SPRQuotaTemplates.ps1
 
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
@@ -115,7 +117,7 @@
     . $PSScriptRoot\Get-SPROtherDatabases.ps1
     . $PSScriptRoot\Get-SPRPatchStatus.ps1
     . $PSScriptRoot\Get-SPRProxyConfiguration.ps1
-    . $PSScriptRoot\Get-SPRQuotaTemplates.ps1
+
     . $PSScriptRoot\Get-SPRSearchAuthoritativePages.ps1
     . $PSScriptRoot\Get-SPRSearchComponents.ps1
     . $PSScriptRoot\Get-SPRSearchContentSources.ps1
@@ -194,7 +196,7 @@
     . $PSScriptRoot\Export-SPRUserProfileManager
     . $PSScriptRoot\Export-SPRUserProfileServiceApplication
     . $PSScriptRoot\Get-SPRSearchTopologies
-    . $PSScriptRoot\Export-SPRQuotaTemplates.ps1
+
     . $PSScriptRoot\Export-SPREnterpriseSearchServiceApplicationInstance.ps1
     . $PSScriptRoot\Export-SPRServiceApplicationConfiguration.ps1
 
