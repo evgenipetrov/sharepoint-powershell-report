@@ -177,7 +177,7 @@
   
   #region 7.2.1	SITE COLLECTIONS LIST
   $title = 'Site Collections List'
-  $object = Get-SPRSiteCollectionList -SPRDatabase $SPRObjects.SPRDatabase
+  $object = Get-SPRSiteCollectionList -SPRSite $SPRObjects.SPRSite
   $properties = 'WebApplication', 'SiteCollectionTitle', 'SiteCollectionUrl', 'SiteCollectionContentDatabase', 'Owners'
   
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
@@ -185,7 +185,7 @@
   
   #region 7.2.2	USAGE AND PROPERTIES
   $title = 'Site Collections Usage and Properties' 
-  $object = Get-SPRSiteUsageAndProperties -SPRDatabase $SPRObjects.SPRDatabase
+  $object = Get-SPRSiteUsageAndProperties -SPRSite $SPRObjects.SPRSite
   $properties = 'SiteCollectionTitle', 'SiteCollectionUrl', 'Language', 'Template', 'NumberOfSites', 'UIVersion', 'Storage'
   
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties

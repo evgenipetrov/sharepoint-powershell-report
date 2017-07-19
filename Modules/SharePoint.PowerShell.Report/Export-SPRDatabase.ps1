@@ -13,7 +13,7 @@
     Write-Host -Object 'Exporting: Database Configuration. ' -NoNewline
 
     $output = Get-SPDatabase
-    $output | Export-Clixml -Path $Path -Depth
+    $output | Export-Clixml -Path $Path
 
     Write-Host -Object ' Done.'
   }
