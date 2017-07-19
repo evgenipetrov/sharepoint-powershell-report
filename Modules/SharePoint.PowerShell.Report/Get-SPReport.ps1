@@ -199,15 +199,16 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.2.3	QUOTA TEMPLATES
   
+  #region 7.2.4	SITE COLLECTION QUOTAS
+  $title = 'Site Collection Quotas'
+  $object = Get-SPRSiteCollectionQuotas -SPRSite $SPRObjects.SPRSite -SPRQuotaTemplate $SPRObjects.SPRQuotaTemplate
+  $properties = 'SiteCollection', 'URL', 'QuotaName', 'LockStatus', 'StorageMaximumLevel', 'StorageWarningLevel', 'UsageStorage'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.2.4	SITE COLLECTION QUOTAS
+  
   
   <#
-      7.2.3	QUOTA TEMPLATES
-      $title = 'Quota Templates'
-      Write-Host -Object "Building section: $title"
-      $report += Get-SPRQuotaTemplates -SPQuotaTemplate $SPRObjects.SPQuotaTemplate |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties TemplateName, StorageMaximumLevel, StorageWarningLevel, InvitedUserMaximumLevel, UserCodeMaximumLevel, UserCodeWarningLevel
   
       7.2.4	SITE COLLECTION QUOTAS
       $title = 'Site Collection Quotas'

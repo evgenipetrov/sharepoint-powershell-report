@@ -58,6 +58,7 @@
 . $PSScriptRoot\Get-SPRSiteCollectionList.ps1
 . $PSScriptRoot\Get-SPRSiteUsageAndProperties.ps1
 . $PSScriptRoot\Get-SPRQuotaTemplates.ps1
+. $PSScriptRoot\Get-SPRSiteCollectionQuotas.ps1
 
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
@@ -147,7 +148,7 @@
     . $PSScriptRoot\Get-SPRSharePointDesignerSettings.ps1
 
 
-    . $PSScriptRoot\Get-SPRSiteCollectionQuotas.ps1
+
 
     
     . $PSScriptRoot\Get-SPRSqlServerAdvancedSettings.ps1

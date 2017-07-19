@@ -3,16 +3,16 @@
   param
   (
     [Parameter(Mandatory = $true)]
-    [object[]]$SPSite,
+    [object[]]$SPRSite,
     [Parameter(Mandatory = $true)]
-    [object[]]$SPQuotaTemplate
+    [object[]]$SPRQuotaTemplate
   )
 	
-  foreach ($site in $SPSite)
+  foreach ($site in $SPRSite)
   {
     $quotaID = $site.Quota.QuotaID
     $quotaName = 'Individual Quota'
-    foreach ($quotaTemplate in $SPQuotaTemplate) {
+    foreach ($quotaTemplate in $SPRQuotaTemplate) {
         if ($quotaTemplate.QuotaID -eq $site.Quota.QuotaID) {
             $quotaName = $quotaTemplate.Name
         }
