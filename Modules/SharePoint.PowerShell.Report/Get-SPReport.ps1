@@ -223,26 +223,25 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.3.2.1	SEARCH SETTINGS
   
+  #region 7.3.2.2	CONTENT SOURCES
+  $title = 'Content Sources'
+  $object = Get-SPRSearchContentSources -SPEnterpriseSearchServiceApplication $SPRObjects.SPREnterpriseSearchServiceApplication
+  $properties = 'ServiceApplication', 'ContentSourceName', 'ContentSourceType'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.3.2.2	CONTENT SOURCES
+  
+  #region 7.3.2.3	START ADDRESSES
+  $title = 'Start Addresses'
+  $object = Get-SPRSearchContentSourcesStartAddresses -SPEnterpriseSearchServiceApplication $SPRObjects.SPREnterpriseSearchServiceApplication
+  $properties = 'ServiceApplication', 'ContentSourceName', 'ContentSourceStartAddress'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.3.2.3	START ADDRESSES
   
   
   <#
-
-      7.3.2.1	SEARCH SETTINGS
-      $title = 'Search Settings'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRSearchSettings -SPEnterpriseSearchServiceApplication $SPRObjects.SPEnterpriseSearchServiceApplication -SPEnterpriseSearchServiceInstance $SPRObjects.SPEnterpriseSearchServiceInstance |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties ServiceApplication, DefaultContentAccessAccount, ContactEmailAddress, IndexLocation, SearchAlertsStatus, QueryLogging
-  
-      7.3.2.2	CONTENT SOURCES
-      $title = 'Content Sources'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRSearchContentSources -SPEnterpriseSearchServiceApplication $SPRObjects.SPREnterpriseSearchTopologyConfiguration |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties ServiceApplication, ContentSourceName, ContentSourceType
-  
+ 
       7.3.2.3	START ADDRESSES
       $title = 'Start Addresses'    
       Write-Host -Object "Building section: $title"                             
