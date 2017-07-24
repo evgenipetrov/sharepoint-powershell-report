@@ -20,6 +20,7 @@
 . $PSScriptRoot\Export-SPRFeature.ps1
 . $PSScriptRoot\Export-SPRManagedAccount.ps1
 . $PSScriptRoot\Export-SPRQuotaTemplates.ps1
+. $PSScriptRoot\Export-SPRCacheClusterConfig.ps1
 
 # helper commands
 . $PSScriptRoot\Get-SPReport.ps1
@@ -59,6 +60,8 @@
 . $PSScriptRoot\Get-SPRSiteUsageAndProperties.ps1
 . $PSScriptRoot\Get-SPRQuotaTemplates.ps1
 . $PSScriptRoot\Get-SPRSiteCollectionQuotas.ps1
+. $PSScriptRoot\Get-SPRDistributedCacheConfig.ps1
+
 
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
@@ -184,8 +187,8 @@
     . $PSScriptRoot\Export-SPRAuthenticationProvider.ps1
     . $PSScriptRoot\Export-SPRDiagnosticLogging.ps1
     . $PSScriptRoot\Export-SPRContentDeploymentSettings.ps1
-    . $PSScriptRoot\Export-SPRCacheClusterConfig.ps1
-    . $PSScriptRoot\Get-SPRDistributedCacheConfig.ps1
+    
+
     . $PSScriptRoot\Export-SPRCacheHost.ps1
     . $PSScriptRoot\Export-SPRLogLevel.ps1
     . $PSScriptRoot\Export-SPRFarmAdmins.ps1

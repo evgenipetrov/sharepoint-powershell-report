@@ -207,19 +207,16 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.2.4	SITE COLLECTION QUOTAS
   
+  #region 7.3.1.1	DISTRIBUTED CACHE CONFIG
+  $title = 'Distributed Cache Config'
+  $object = Get-SPRDistributedCacheConfig -SPRCacheClusterConfig $SPRObjects.SPRCacheClusterConfig
+  $properties = 'Host', 'Size', 'CachePort', 'ClusterPort', 'ReplicationPort', 'ArbitrationPort', 'Status'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.3.1.1	DISTRIBUTED CACHE CONFIG
   
   <#
   
-      7.2.4	SITE COLLECTION QUOTAS
-      $title = 'Site Collection Quotas'
-      Write-Host -Object "Building section: $title"
-      $report += Get-SPRSiteCollectionQuotas -SPSite $SPRObjects.SPSite -SPQuotaTemplate $SPRObjects.SPQuotaTemplate |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties SiteCollection, URL, QuotaName, LockStatus, StorageMaximumLevel, StorageWarningLevel, UsageStorage
-
-
-
 
   
       7.3.1.1	DISTRIBUTED CACHE CONFIG
