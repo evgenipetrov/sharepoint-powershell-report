@@ -26,7 +26,7 @@ function Export-SPRObjects
   #Export-SPRFeature -Path $Path -Async $Async
   #Export-SPRManagedAccount -Path $Path -Async $Async
   #Export-SPRQuotaTemplates -Path $Path -Async $Async
-  Export-SPRCacheClusterConfig -Path $Path -Async $Async
+  #Export-SPRCacheClusterConfig -Path $Path -Async $Async
   
   ###Export-SPREnterpriseSearchTopologyConfiguration -Path $Path -Async $Async
   ###Export-SPREnterpriseSearchComponent -Path $Path -Async $Async

@@ -61,7 +61,7 @@
 . $PSScriptRoot\Get-SPRQuotaTemplates.ps1
 . $PSScriptRoot\Get-SPRSiteCollectionQuotas.ps1
 . $PSScriptRoot\Get-SPRDistributedCacheConfig.ps1
-
+. $PSScriptRoot\Get-SPRSearchSettings.ps1
 
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
@@ -133,7 +133,7 @@
     . $PSScriptRoot\Get-SPRSearchManagedProperties.ps1
     . $PSScriptRoot\Get-SPRSearchScopes.ps1
 
-    . $PSScriptRoot\Get-SPRSearchSettings.ps1
+
     . $PSScriptRoot\Get-SPRSearchTopologies.ps1
     . $PSScriptRoot\Get-SPRServerCertificates.ps1
     . $PSScriptRoot\Get-SPRServerDiskList.ps1

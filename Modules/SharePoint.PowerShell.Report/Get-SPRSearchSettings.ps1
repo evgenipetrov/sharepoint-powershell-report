@@ -3,19 +3,16 @@
   param
   (
     [Parameter(Mandatory = $true)]
-    [object[]]$SPEnterpriseSearchServiceApplication,
-    [Parameter(Mandatory = $true)]
-    [object[]]$SPEnterpriseSearchServiceInstance
-    
+    [object[]]$SPREnterpriseSearchServiceApplication    
   )
 	
-  foreach ($searchServiceApplication in $SPEnterpriseSearchServiceApplication)
+  foreach ($searchServiceApplication in $SPREnterpriseSearchServiceApplication)
   {
     $properties = [ordered]@{
       'ServiceApplication'        = $searchServiceApplication.Name
       'DefaultContentAccessAccount' = $searchServiceApplication.Content.DefaultGatheringAccount
       'ContactEmailAddress'       = $XXX
-      'IndexLocation'             = $SPEnterpriseSearchServiceInstance.CrawlComponents.IndexLocation
+      'IndexLocation'             = $searchServiceApplication.CrawlComponents.IndexLocation
       'SearchAlertsStatus'        = $searchServiceApplication.AlertsEnabled
       'QueryLogging'              = $searchServiceApplication.QueryLoggingEnabled
     }

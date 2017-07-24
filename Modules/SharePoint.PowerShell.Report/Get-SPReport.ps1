@@ -215,17 +215,17 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.3.1.1	DISTRIBUTED CACHE CONFIG
   
+  #region 7.3.2.1	SEARCH SETTINGS
+  $title = 'Search Settings'
+  $object = Get-SPRSearchSettings -SPREnterpriseSearchServiceApplication $SPRObjects.SPREnterpriseSearchServiceApplication
+  $properties = 'ServiceApplication', 'DefaultContentAccessAccount', 'ContactEmailAddress', 'IndexLocation', 'SearchAlertsStatus', 'QueryLogging'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.3.2.1	SEARCH SETTINGS
+  
+  
+  
   <#
-  
-
-  
-      7.3.1.1	DISTRIBUTED CACHE CONFIG
-      $title = 'DISTRIBUTED CACHE CONFIG'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRDistributedCacheConfig -SPCacheClusterConfig $SPRObjects.SPCacheClusterConfig -SPCacheHost $SPRObjects.SPCacheHost |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties Host, Size, CachePort, ClusterPort, ReplicationPort, ArbitrationPort, Status
 
       7.3.2.1	SEARCH SETTINGS
       $title = 'Search Settings'    
