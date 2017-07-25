@@ -3,10 +3,10 @@
   param
   (
     [Parameter(Mandatory = $true)]
-    [object[]]$SPEnterpriseSearchServiceApplication
+    [object[]]$SPREnterpriseSearchServiceApplication
   )
 	
-  foreach ($searchServiceApplication in $SPEnterpriseSearchServiceApplication)
+  foreach ($searchServiceApplication in $SPREnterpriseSearchServiceApplication)
   {
     $properties = [ordered]@{
       'ServiceApplication' = $searchServiceApplication.Name

@@ -255,17 +255,17 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.3.2.5	FILE TYPES
   
+  #region 7.3.2.5	FILE TYPES
+  $title = 'Authoritative Pages'
+  $object = Get-SPRSearchAuthoritativePages -SPREnterpriseSearchServiceApplication $SPRObjects.SPREnterpriseSearchServiceApplication
+  $properties = 'ServiceApplication', 'Url', 'Level', 'Status'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.3.2.5	FILE TYPES
+  
   
   <#
 
-  
-      7.3.2.5	FILE TYPES
-      $title = 'File Types'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRSearchFileTypes -SPEnterpriseSearchServiceApplication $SPRObjects.SPEnterpriseSearchServiceApplication |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties ServiceApplication, FileTypes
 
       7.3.2.6	AUTHORITATIVE PAGES
       $title = 'Authoritative Pages'    
