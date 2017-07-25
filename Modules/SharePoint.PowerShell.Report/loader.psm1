@@ -64,6 +64,8 @@
 . $PSScriptRoot\Get-SPRSearchSettings.ps1
 . $PSScriptRoot\Get-SPRSearchContentSources.ps1
 . $PSScriptRoot\Get-SPRSearchContentSourcesStartAddresses.ps1
+. $PSScriptRoot\Get-SPRSearchCrawlStores.ps1
+    . $PSScriptRoot\Get-SPRSearchFileTypes.ps1
 
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
@@ -128,7 +130,7 @@
     . $PSScriptRoot\Get-SPRSearchComponents.ps1
 
     . $PSScriptRoot\Get-SPRSearchContentSourcesStartAddresses.ps1
-    . $PSScriptRoot\Get-SPRSearchCrawlStores.ps1
+    
     . $PSScriptRoot\Get-SPRSearchFederatedLocations.ps1
     . $PSScriptRoot\Get-SPRSearchFileTypes.ps1
     . $PSScriptRoot\Get-SPRSearchIndexPartitions.ps1
