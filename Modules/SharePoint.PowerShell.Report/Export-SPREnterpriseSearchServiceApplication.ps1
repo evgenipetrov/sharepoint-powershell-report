@@ -45,6 +45,12 @@
       Get-SPEnterpriseSearchComponent
       $mySearchServiceApplication | Add-Member -MemberType NoteProperty -Name 'SearchComponent' -Value $component
 
+      $managedProperties = Get-SPEnterpriseSearchMetadataManagedProperty -SearchApplication $searchServiceApplication
+      $mySearchServiceApplication | Add-Member -MemberType NoteProperty -Name 'ManagedProperties' -Value $managedProperties
+
+      $searchQueryScopes = Get-SPEnterpriseSearchQueryScope -SearchApplication $searchServiceApplication
+      $mySearchServiceApplication | Add-Member -MemberType NoteProperty -Name 'SearchQueryScopes' -Value $searchQueryScopes
+
       $output += $mySearchServiceApplication
     }
 

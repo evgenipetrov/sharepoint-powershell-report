@@ -271,16 +271,16 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.3.2.7	FEDERATED LOCATIONS
   
+  #region 7.3.2.8	SCOPES
+  $title = 'Scopes'
+  $object = Get-SPRSearchScopes -SPREnterpriseSearchServiceApplication $SPRObjects.SPREnterpriseSearchServiceApplication
+  $properties = 'ServiceApplication', 'DisplayName', 'LastModifiedBy', 'AlternateResultsPage', 'DefaultSearchResults', 'DifferentPageForSearching', 'RuleCount'
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.3.2.8	SCOPES
+  
   <#
 
-  
-      7.3.2.7	FEDERATED LOCATIONS
-      $title = 'Federated Locations'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRSearchFederatedLocations -SPEnterpriseSearchServiceApplication $SPRObjects.SPEnterpriseSearchServiceApplication |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties ServiceApplication, DisplayName, Author, Version, LocationType, Trigger, CreationDate
   
       7.3.2.8	SCOPES
   

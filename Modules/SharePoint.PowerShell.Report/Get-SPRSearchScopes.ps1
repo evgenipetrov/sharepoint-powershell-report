@@ -3,22 +3,28 @@
   param
   (
     [Parameter(Mandatory = $true)]
-    [object[]]$XXX
+    [object[]]$SPREnterpriseSearchServiceApplication
   )
 	
-  foreach ($XXX in $XXXs)
+  foreach ($searchServiceApplication in $SPREnterpriseSearchServiceApplication)
   {
-    $properties = [ordered]@{
-      'ServiceApplication'      = $XXX
-      'DisplayName'             = $XXX
-      'LastModifiedBy'          = $XXX
-      'AlternateResultsPage'    = $XXX
-      'DefaultSearchResults'    = $XXX
-      'DifferentPageForSearching' = $XXX
-      'RuleConunt'              = $XXX
+    foreach ($searchQueryScope in $searchServiceApplication.SearchQueryScopes)
+    {
+        $properties = [ordered]@{
+      'ServiceApplication'      = $searchServiceApplication.Name
+      'DisplayName'             = $searchQueryScope.Name
+      'LastModifiedBy'          = $searchQueryScope.LastModifiedBy
+      'AlternateResultsPage'    = $searchQueryScope.AlternateResultsPage
+      'DefaultSearchResults'    = '?'
+      'DifferentPageForSearching' = '?'
+      'RuleCount'              = $searchQueryScope.Rules.Count
     }
     $output = New-Object -TypeName PSObject -Property $properties
 		
     Write-Output -InputObject $output
+      
+    }
+    
+
   }
 }
