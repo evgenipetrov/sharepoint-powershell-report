@@ -22,7 +22,7 @@ function Export-SPRObjects
   #Export-SPRServer -Path $Path -Async $Async
   #Export-SPRSite -Path $Path -Async $Async
   #Export-SPRWebApplication -Path $Path -Async $Async
-  #Export-SPREnterpriseSearchServiceApplication -Path $Path -Async $Async
+  Export-SPREnterpriseSearchServiceApplication -Path $Path -Async $Async
   #Export-SPRFeature -Path $Path -Async $Async
   #Export-SPRManagedAccount -Path $Path -Async $Async
   #Export-SPRQuotaTemplates -Path $Path -Async $Async

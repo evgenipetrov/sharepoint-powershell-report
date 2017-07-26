@@ -19,7 +19,7 @@
     $output = @()
     foreach ($searchServiceApplication in $searchServiceApplications)
     {
-      $mySearchServiceApplication = $searchServiceApplication | Select-Object Name,Id
+      $mySearchServiceApplication = $searchServiceApplication | Select-Object -Property Name, Id, LocationConfigurations
 
       $content = New-Object -TypeName Microsoft.Office.Server.Search.Administration.Content -ArgumentList $searchServiceApplication
       $mySearchServiceApplication | Add-Member -MemberType NoteProperty -Name 'Content' -Value $content
@@ -40,13 +40,15 @@
       $topology = $searchServiceApplication | Get-SPEnterpriseSearchTopology
       $mySearchServiceApplication | Add-Member -MemberType NoteProperty -Name 'SearchTopology' -Value $topology
       
-      $component = $searchServiceApplication | Get-SPEnterpriseSearchTopology -Active | Get-SPEnterpriseSearchComponent
+      $component = $searchServiceApplication |
+      Get-SPEnterpriseSearchTopology -Active |
+      Get-SPEnterpriseSearchComponent
       $mySearchServiceApplication | Add-Member -MemberType NoteProperty -Name 'SearchComponent' -Value $component
-      
+
       $output += $mySearchServiceApplication
     }
 
-    $output | Export-Clixml -Path $Path
+    $output | Export-Clixml -Path $Path -Depth 5
     Write-Host -Object ' Done.'
   }
   if($Async) 
