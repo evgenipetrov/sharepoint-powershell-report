@@ -70,6 +70,7 @@
 . $PSScriptRoot\Get-SPRSearchFederatedLocations.ps1
 . $PSScriptRoot\Get-SPRSearchScopes.ps1
 . $PSScriptRoot\Get-SPRSearchManagedProperties.ps1
+. $PSScriptRoot\Get-SPRSearchTopologies.ps1
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
 
@@ -141,7 +142,7 @@
     . $PSScriptRoot\Get-SPRSearchScopes.ps1
 
 
-    . $PSScriptRoot\Get-SPRSearchTopologies.ps1
+    
     . $PSScriptRoot\Get-SPRServerCertificates.ps1
     . $PSScriptRoot\Get-SPRServerDiskList.ps1
     . $PSScriptRoot\Get-SPRServerLocalAdmins.ps1

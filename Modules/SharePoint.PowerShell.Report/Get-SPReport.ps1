@@ -283,17 +283,21 @@
   $title = 'Managed Properties'
   $object = Get-SPRSearchManagedProperties -SPREnterpriseSearchServiceApplication $SPRObjects.SPREnterpriseSearchServiceApplication
   $properties = 'ServiceApplication', 'ManagedPropertyName', 'Type', 'MayBeDeleted', 'UseInScopes', 'Optimized'
-  
-  
+    
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.3.2.9	MANAGED PROPERTIES
   
+  #region 7.3.2.10	SEARCH TOPOLOGIES
+  $title = 'Search Topologies'
+  $object = Get-SPRSearchTopologies -SPREnterpriseSearchServiceApplication $SPRObjects.SPREnterpriseSearchServiceApplication
+  $properties = 'ServiceApplication', 'Topology', 'CreationDate', 'State', 'ComponentCount', 'IsActive'
+    
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.3.2.10	SEARCH TOPOLOGIES
+  
+  
   <#
 
-  
-      7.3.2.8	SCOPES
-  
-      7.3.2.9	MANAGED PROPERTIES
   
       7.3.2.10	SEARCH TOPOLOGIES
       $title = 'Search Topologies'    

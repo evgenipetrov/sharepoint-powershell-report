@@ -3,22 +3,23 @@
   param
   (
     [Parameter(Mandatory = $true)]
-    [object[]]$SPREnterpriseSearchTopologyConfiguration
+    [object[]]$SPREnterpriseSearchServiceApplication
   )
 
-
-  foreach ($topology in $SPREnterpriseSearchTopologyConfiguration)
+  foreach ($searchServiceApplication in $SPREnterpriseSearchServiceApplication)
   {
-    $properties = [ordered]@{
-      'ServiceApplication' = $topology.SearchServiceApplicationName
-      'Topology'         = $topology.TopologyId
-      'CreationDate'     = $topology.CreationDate
-      'State'            = $topology.State
-      'ComponentCount'   = $topology.ComponentCount
-      'IsActive'         = $topology.State
+    foreach ($topology in $searchServiceApplication.SearchTopology)
+    {
+      $properties = [ordered]@{
+        'ServiceApplication' = $searchServiceApplication.Name
+        'Topology'         = $topology.TopologyId
+        'CreationDate'     = $topology.CreationDate
+        'State'            = $topology.State
+        'ComponentCount'   = $topology.ComponentCount
+        'IsActive'         = $topology.State
+      }
+      $output = New-Object -TypeName PSObject -Property $properties
+      Write-Output -InputObject $output
     }
-    $output = New-Object -TypeName PSObject -Property $properties
-		
-    Write-Output -InputObject $output
   }
 }
