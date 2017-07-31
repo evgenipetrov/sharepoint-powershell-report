@@ -69,6 +69,7 @@
 . $PSScriptRoot\Get-SPRSearchAuthoritativePages.ps1
 . $PSScriptRoot\Get-SPRSearchFederatedLocations.ps1
 . $PSScriptRoot\Get-SPRSearchScopes.ps1
+. $PSScriptRoot\Get-SPRSearchManagedProperties.ps1
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
 
@@ -136,7 +137,7 @@
     . $PSScriptRoot\Get-SPRSearchFederatedLocations.ps1
     . $PSScriptRoot\Get-SPRSearchFileTypes.ps1
     . $PSScriptRoot\Get-SPRSearchIndexPartitions.ps1
-    . $PSScriptRoot\Get-SPRSearchManagedProperties.ps1
+
     . $PSScriptRoot\Get-SPRSearchScopes.ps1
 
 

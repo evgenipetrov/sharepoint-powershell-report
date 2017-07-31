@@ -3,21 +3,25 @@
   param
   (
     [Parameter(Mandatory = $true)]
-    [object[]]$XXX
+    [object[]]$SPREnterpriseSearchServiceApplication
   )
 	
-  foreach ($XXX in $XXXs)
+  foreach ($searchServiceApplication in $SPREnterpriseSearchServiceApplication)
   {
-    $properties = [ordered]@{
-      'ServiceApplication' = $XXX
-      'PropertyName'     = $XXX
-      'Type'             = $XXX
-      'MayBeDeleted'     = $XXX
-      'UseInScopers'     = $XXX
-      'Optimized'        = $XXX
-    }
-    $output = New-Object -TypeName PSObject -Property $properties
+    foreach ($managedProperty in $searchServiceApplication.ManagedProperties)
+    {
+      $properties = [ordered]@{
+        'ServiceApplication' = $searchServiceApplication.Name
+        'ServiceApplicationID' = $searchServiceApplication.ID
+        'ManagedPropertyName' = $managedProperty.Name
+        'Type'               = $managedProperty.ManagedType
+        'MayBeDeleted'       = !($managedProperty.DeleteDisallowed)
+        'UseInScopes'        = $managedProperty.EnabledForScoping
+        'Optimized'          = $managedProperty.IsInFixedColumnOptimizedResults
+      }
+      $output = New-Object -TypeName PSObject -Property $properties
 		
-    Write-Output -InputObject $output
+      Write-Output -InputObject $output
+    }
   }
 }

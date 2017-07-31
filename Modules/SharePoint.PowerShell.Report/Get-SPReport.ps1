@@ -278,6 +278,15 @@
   
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.3.2.8	SCOPES
+
+  #region 7.3.2.9	MANAGED PROPERTIES
+  $title = 'Managed Properties'
+  $object = Get-SPRSearchManagedProperties -SPREnterpriseSearchServiceApplication $SPRObjects.SPREnterpriseSearchServiceApplication
+  $properties = 'ServiceApplication', 'ManagedPropertyName', 'Type', 'MayBeDeleted', 'UseInScopes', 'Optimized'
+  
+  
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.3.2.9	MANAGED PROPERTIES
   
   <#
 
