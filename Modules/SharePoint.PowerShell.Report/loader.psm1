@@ -71,6 +71,7 @@
 . $PSScriptRoot\Get-SPRSearchScopes.ps1
 . $PSScriptRoot\Get-SPRSearchManagedProperties.ps1
 . $PSScriptRoot\Get-SPRSearchTopologies.ps1
+. $PSScriptRoot\Get-SPRSearchComponents.ps1
 <#
     #$PSScriptRoot\Export-SPRServiceInstance.ps1
 
@@ -131,7 +132,7 @@
     . $PSScriptRoot\Get-SPRProxyConfiguration.ps1
 
     
-    . $PSScriptRoot\Get-SPRSearchComponents.ps1
+    
 
     . $PSScriptRoot\Get-SPRSearchContentSourcesStartAddresses.ps1
     

@@ -295,17 +295,15 @@
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.3.2.10	SEARCH TOPOLOGIES
   
+  #region 7.3.2.11	SEARCH COMPONENTS
+  $title = 'Search Components'
+  $object = Get-SPRSearchComponents -SPREnterpriseSearchServiceApplication $SPRObjects.SPREnterpriseSearchServiceApplication
+  $properties = 'Name', 'Topology', 'ServiceApplication', 'Server', 'Type'
+    
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.3.2.11	SEARCH COMPONENTS
   
   <#
-
-  
-      7.3.2.10	SEARCH TOPOLOGIES
-      $title = 'Search Topologies'    
-      Write-Host -Object "Building section: $title"                             
-      $report += Get-SPRSearchTopologies -SPREnterpriseSearchTopologyConfiguration $SPRObjects.SPREnterpriseSearchTopologyConfiguration |
-      ConvertTo-EnhancedHTMLFragment -As Table -EvenRowCssClass 'even' -OddRowCssClass 'odd' -TableCssClass 'report-table' `
-      -PreContent "<h2>$title</h2>" `
-      -Properties ServiceApplication, Topology, CreationDate, State, ComponentCount, IsActive
   
       7.3.2.11	SEARCH COMPONENTS
   
