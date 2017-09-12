@@ -36,10 +36,9 @@ Remove-Module -Name 'SharePoint.PowerShell.Helpers' -ErrorAction SilentlyContinu
 Import-Module -Name 'SharePoint.PowerShell.Helpers'
 
 $exportPath = '{0}\Export' -f $scriptLocation
-$reportPath = '{0}\Report\Report.html' -f $scriptLocation
+$reportPath = '{0}\Report' -f $scriptLocation
 
-#Export-SPRObjects -Path $exportPath -Async:$false
-Get-SPReport -ExportPath $exportPath -ReportPath $reportPath -FromExportedFiles 
+Get-SPReport -ExportPath $exportPath -ReportPath $reportPath -Live
 
 
 

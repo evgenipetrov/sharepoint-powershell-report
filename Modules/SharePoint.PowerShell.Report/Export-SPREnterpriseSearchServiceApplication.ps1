@@ -51,6 +51,9 @@
       $searchQueryScopes = Get-SPEnterpriseSearchQueryScope -SearchApplication $searchServiceApplication
       $mySearchServiceApplication | Add-Member -MemberType NoteProperty -Name 'SearchQueryScopes' -Value $searchQueryScopes
 
+      $searchServiceInstances = Get-SPEnterpriseSearchServiceInstance
+      $mySearchServiceApplication | Add-Member -MemberType NoteProperty -Name 'SearchServiceInstances' -Value $searchServiceInstances
+
       $output += $mySearchServiceApplication
     }
 

@@ -3,17 +3,17 @@
   param
   (
     [parameter(Mandatory = $true)]
+    [switch]$Live,
     [string]$ExportPath,
-    [switch]$FromExportedFiles,
     [string]$ReportPath
   )
 	
-  if (-not $FromExportedFiles)
+  if ($Live)
   {
-    Export-SPRObjects -Path $ExportPath
+    Export-SPRObjects -Path $exportPath -Async:$false
   }
+
   $SPRObjects = Get-SPRObject -Path $ExportPath
-	
 
   #region 2. FARM OVERVIEW
   $title = 'Farm Overview'
@@ -302,10 +302,17 @@
     
   $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
   #endregion 7.3.2.11	SEARCH COMPONENTS
+
+  #region 7.3.2.12	INDEX PARTITIONS
+  $title = 'Index Partitions'
+  $object = Get-SPRSearchIndexPartitions -SPREnterpriseSearchServiceApplication $SPRObjects.SPREnterpriseSearchServiceApplication
+  $properties = 'Name', 'Topology', 'ServiceApplication', 'Server', 'RootDirectory'
+    
+  $fragments += Get-SPReportFragment -Title $title -Object $object -Properties $properties
+  #endregion 7.3.2.12	INDEX PARTITIONS
+  
   
   <#
-  
-      7.3.2.11	SEARCH COMPONENTS
   
       7.3.2.12	INDEX PARTITIONS
   
@@ -591,7 +598,8 @@
 "@
   $date = Get-Date
   $reportTitle = "<h1>SharePoint Farm Report</h1><h2>$date</h2>"
-  ConvertTo-EnhancedHTML -HTMLFragments $fragments -Title 'SharePoint Farm Report' -PreContent $reportTitle -CssStyleSheet $css -jQueryURI 'https://code.jquery.com/jquery-3.2.1.min.js' | Out-File -FilePath $ReportPath
+  $filePath = "{0}\Report.html" -f $ReportPath
+  ConvertTo-EnhancedHTML -HTMLFragments $fragments -Title 'SharePoint Farm Report' -PreContent $reportTitle -CssStyleSheet $css | Out-File -FilePath $filePath
 }
 
 
